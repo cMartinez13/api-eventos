@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     # Propias
     'app_reservas',
     'app_cliente',
+<<<<<<< HEAD
     'app_coordinador'
+=======
+    'app_empleados',
+>>>>>>> abe18b086dc843adbeb51faed118376e479175bf
     # Terceros
 ]
 
@@ -59,7 +63,7 @@ ROOT_URLCONF = 'django_eventos.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR / 'templates' ],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

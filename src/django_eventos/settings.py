@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'app_reservas',
     'app_clientes',
     'app_coordinadores',
+    'app_empleados',
     # Terceros
 ]
 
@@ -72,7 +73,7 @@ TEMPLATES = [
     },
     {
         "BACKEND": "django.template.backends.jinja2.Jinja2",
-        'DIRS': [ BASE_DIR / 'templates' ],
+        'DIRS': [BASE_DIR / 'templates'],
     },
 ]
 

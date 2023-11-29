@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Propias
     'app_reservas',
-    'app_cliente'
+    'app_clientes'
     # Terceros
 ]
 
@@ -68,6 +68,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+    },
+    {
+        "BACKEND": "django.template.backends.jinja2.Jinja2",
+        'DIRS': [ BASE_DIR / 'templates' ],
     },
 ]
 

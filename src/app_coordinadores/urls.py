@@ -6,7 +6,7 @@ app_name = "coordinador"
 
 urlpatterns = [
 
-    path('actualizar/<int:pk>/',
-         views.CoordinadorUpdateView.as_view(), name='actualizar'),
+    path('modificar/<int:pk>/',
+         views.CoordinadorUpdateView.as_view(), name='modificar'),
 
 ]

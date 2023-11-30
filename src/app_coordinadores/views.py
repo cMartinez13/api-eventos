@@ -1,4 +1,3 @@
-from .form import CoordinadorForm
 from django.shortcuts import render, redirect
 from django.shortcuts import render
 from django.views import generic
@@ -22,15 +21,3 @@ class CoordinadorListView(generic.ListView):
     context_object_name = 'coordinador'
     template_name = 'coordinadores/lista.html'
 
-
-def registrar_coordinador(request):
-    if request.method == 'POST':
-        form = CoordinadorForm(request.POST)
-    if form.is_valid():
-        form.save()
-        # Redirige a la lista de coordinadores o a donde desees
-        return redirect('lista_coordinadores')
-    else:
-        form = CoordinadorForm()
-
-    return render(request, 'registrar_coordinador.html', {'form': form})

@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Propias
     'app_reservas',
-    'app_cliente',
     'app_servicio',
     'app_ReservaServicio',
     'app_clientes',

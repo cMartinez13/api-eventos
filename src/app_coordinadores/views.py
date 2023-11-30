@@ -16,6 +16,13 @@ class CoordinadorUpdateView(generic.UpdateView):
     # success_url = reverse_lazy("coordinador:listar")
 
 
+class CoordinadorListView(generic.ListView):
+    model = Coordinador
+    fields = '__all__'
+    context_object_name = 'coordinador'
+    template_name = 'coordinadores/lista.html'
+
+
 def registrar_coordinador(request):
     if request.method == 'POST':
         form = CoordinadorForm(request.POST)

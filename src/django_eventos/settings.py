@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'app_cliente',
     'app_coordinador',
     'app_servicio',
+    'app_ReservaServicio',
     'app_clientes',
     'app_coordinadores',
     'app_empleados',

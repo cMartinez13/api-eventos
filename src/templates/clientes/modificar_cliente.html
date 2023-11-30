@@ -1,0 +1,11 @@
+<h1> Modificar Cliente: </h1>
+
+
+{% comment %} input -> nombre, apellido {% endcomment %}
+<form action="" method="POST">
+    <table>
+        {% csrf_token %}
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Editar">
+</form>

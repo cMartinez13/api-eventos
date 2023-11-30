@@ -1,0 +1,15 @@
+
+<h1>Listado de Empleados</h1>
+
+<ul>
+    {% for empleado in empleados %}
+        <li>
+            <strong>ID:</strong> {{ empleado.id }}<br>
+            <strong>Nombre:</strong> {{ empleado.nombre }}<br>
+            <strong>Apellido:</strong> {{ empleado.apellido }}<br>
+            <strong>Legajo:</strong> {{ empleado.legajo }}<br>
+            <strong>Activo:</strong> {{ empleado.activo }}<br>
+            
+        </li>
+    {% endfor %}
+</ul>

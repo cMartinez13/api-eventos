@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'app_cliente',
     'app_coordinador',
     'app_servicio',
+    'app_clientes',
+    'app_coordinadores',
+    'app_empleados',
     # Terceros
 ]
 
@@ -70,6 +73,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+    },
+    {
+        "BACKEND": "django.template.backends.jinja2.Jinja2",
+        'DIRS': [BASE_DIR / 'templates'],
     },
 ]
 

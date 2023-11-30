@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     # Propias
     'app_reservas',
     'app_cliente',
-    'app_coordinador',
     'app_servicio',
     'app_ReservaServicio',
     'app_clientes',

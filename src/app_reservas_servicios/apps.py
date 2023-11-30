@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AppReservaservicioConfig(AppConfig):
+class AppReservasServicioConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'app_ReservaServicio'
+    name = 'app_reservas_servicios'

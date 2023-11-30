@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+​
+{% block titulo %}
+lista clientes 
+{% endblock titulo %}
+|
+{% block contenido %}
+<h2>Lista de clientes: </h2> 
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Apellido</th>
+      <th>Nombre</th>
+      <th>Activo</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cliente in clientes %}
+    <tr>
+      <th> {{ cliente.id }} </th>
+      <td>{{ cliente.nombre }}</td>
+      <td>{{ cliente.apellido }}</td>
+      <td>{{ cliente.activo }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+​
+{% endblock contenido %}

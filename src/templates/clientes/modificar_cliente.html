@@ -1,11 +1,15 @@
-<h1> Modificar Cliente: </h1>
+{% extends "base.html" %}
 
+{% block titulo %}
+    {{titulo}}
+{% endblock titulo %}
 
-{% comment %} input -> nombre, apellido {% endcomment %}
-<form action="" method="POST">
+{% block contenido %}
+<form action="" method="POST" enctype="multipart/form-data">
     <table>
-        {% csrf_token %}
         {{ form.as_table }}
+        {% csrf_token %}
     </table>
-    <input type="submit" value="Editar">
+    <button type="submit">{{mensaje_boton}}</button>
 </form>
+{% endblock contenido %}

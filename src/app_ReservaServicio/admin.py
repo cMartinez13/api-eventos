@@ -3,7 +3,7 @@ from .models import ReservaServicio
 
 # Register your models here.
 @admin.register(ReservaServicio)
-class ReservaServicioAdmin(admin.ModelAdmin):
-    list_display = ('cliente','servicio', 'fecha_reserva', 'fecha_servicio', 'empleado', 'coordinador' )
-    search_fields = ('cliente', 'servicio', 'fecha_reserva')
+class ReservaServicio(admin.ModelAdmin):
+    list_display = ['cliente', 'fecha_reserva', 'fecha_servicio', 'empleado']
+    search_fields = ['cliente', 'servicio', 'fecha_reserva']
     

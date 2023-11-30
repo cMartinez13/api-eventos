@@ -40,11 +40,8 @@ INSTALLED_APPS = [
     # Propias
     'app_reservas',
     'app_cliente',
-<<<<<<< HEAD
-    'app_coordinador'
-=======
-    'app_empleados',
->>>>>>> abe18b086dc843adbeb51faed118376e479175bf
+    'app_coordinador',
+    'app_servicio',
     # Terceros
 ]
 

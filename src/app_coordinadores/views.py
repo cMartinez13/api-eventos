@@ -21,3 +21,10 @@ class CoordinadorListView(generic.ListView):
     context_object_name = 'coordinador'
     template_name = 'coordinadores/lista.html'
 
+# class CoordinadorDeleteView(generic.UpdateView):
+#     model = Coordinador
+#     fields = '__all__'
+#     template_name = 'coordinadores/modificar.html'
+#     extra_context = {'titulo': 'Modificar Coordinador', 'mensaje_boton': 'ELIMINAR'}
+#     success_url = reverse_lazy('coordinadores:listar')
+

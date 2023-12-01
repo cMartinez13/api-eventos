@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404, render
 # Create your views here.
 
 class CoordinadorCreateView(generic.CreateView):
-    model: Empleado
+    model: Coordinador
     fields = '__all__'
     template_name = 'coordinador/crear_cordinador.html'
 

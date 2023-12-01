@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy
 from .models import Cliente
@@ -37,6 +37,15 @@ class ClienteUpdateView(generic.UpdateView):
 #     template_name = 'clientes/modificar_cliente.html'
 #     extra_context = {'titulo': 'Modificar Cliente', 'mensaje_boton': 'ELIMINAR'}
 #     success_url = reverse_lazy('clientes:listar')
+
+
+
+def desactivar_cliente(request, id):
+    cliente = get_object_or_404(Cliente, id=id)
+    cliente.activo = False
+    cliente.save()
+    message = "El cliente ha sido desactivado exitosamente."
+    return render(request, 'desactivar_cliente.html', {'message': message})
 
 
 

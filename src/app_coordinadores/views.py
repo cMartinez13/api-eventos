@@ -3,9 +3,16 @@ from django.shortcuts import render
 from django.views import generic
 from .models import Coordinador
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404, render
+
+
 
 # Create your views here.
 
+class CoordinadorCreateView(generic.CreateView):
+    model: Empleado
+    fields = '__all__'
+    template_name = 'coordinador/crear_cordinador.html'
 
 class CoordinadorUpdateView(generic.UpdateView):
     model = Coordinador
@@ -28,3 +35,13 @@ class CoordinadorListView(generic.ListView):
 #     extra_context = {'titulo': 'Modificar Coordinador', 'mensaje_boton': 'ELIMINAR'}
 #     success_url = reverse_lazy('coordinadores:listar')
 
+
+
+def activar_coordinador(request, id):
+    coordinador = get_object_or_404(Coordinador, id=id)
+
+    coordinador.activo = True
+    coordinador.save()
+
+    message = "El coordinador ha sido activado exitosamente."
+    return render(request, 'activar_coordinador.html', {'message': message})

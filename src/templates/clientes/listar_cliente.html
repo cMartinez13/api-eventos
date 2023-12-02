@@ -19,8 +19,8 @@ lista clientes
     {% for cliente in clientes %}
     <tr>
       <th> {{ cliente.id }} </th>
-      <td>{{ cliente.nombre }}</td>
       <td>{{ cliente.apellido }}</td>
+      <td>{{ cliente.nombre }}</td>
       <td>{{ cliente.activo }}</td>
     </tr>
     {% endfor %}

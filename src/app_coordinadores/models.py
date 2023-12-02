@@ -6,4 +6,7 @@ class Coordinador(models.Model):
     apellido = models.CharField(max_length=50)
     documento = models.IntegerField()
     fecha_alta = models.DateTimeField()
-    activo = models.BooleanField(default=True) 
+    activo = models.BooleanField(default=True)
+
+    def __str__(self):
+        return F"{self.nombre} | {self.apellido} {self.documento} {self.fecha_alta} {self.activo}"

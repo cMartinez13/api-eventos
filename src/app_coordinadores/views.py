@@ -9,25 +9,28 @@ from django.shortcuts import get_object_or_404, render
 # Create your views here.
 
 class CoordinadorCreateView(generic.CreateView):
-    model: Coordinador
-    fields = '__all__'
-    template_name = 'coordinador/crear_cordinador.html'
-
-
-class CoordinadorUpdateView(generic.UpdateView):
     model = Coordinador
-    fields = ['nombre', 'apellido', 'documento']
-    template_name = 'coordinadores/modificar.html'
-
-    # success_url = reverse_lazy("coordinador:listar")
+    fields = '__all__'
+    template_name = 'coordinadores/crear_coordinadores.html'
+    success_url = reverse_lazy('coordinadores:listar')
 
 
 class CoordinadorListView(generic.ListView):
     queryset = Coordinador.objects.filter(activo=True)
     model = Coordinador
     fields = '__all__'
-    context_object_name = 'coordinador'
-    template_name = 'coordinadores/lista.html'
+    context_object_name = 'coordinadores'
+    template_name = 'coordinadores/listar_coordinador.html'
+
+
+class CoordinadorUpdateView(generic.UpdateView):
+    queryset = Coordinador.objects.filter(activo=True)
+    model = Coordinador
+    fields = '__all__'
+    template_name = 'coordinadores/modificar_coordinador.html'
+    extra_context = {'titulo': 'Modificar Coordinador',
+                     'mensaje_boton': 'MODIFICAR'}
+    success_url = reverse_lazy('coordinadores:listar')
 
 # class CoordinadorDeleteView(generic.UpdateView):
 #     model = Coordinador

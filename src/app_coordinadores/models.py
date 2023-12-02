@@ -9,4 +9,4 @@ class Coordinador(models.Model):
     activo = models.BooleanField(default=True)
 
     def __str__(self):
-        return F"{self.nombre} | {self.apellido} {self.documento} {self.fecha_alt} {self.activo}"
+        return F"{self.nombre} | {self.apellido} {self.documento} {self.fecha_alta} {self.activo}"

@@ -10,9 +10,10 @@ from django.shortcuts import get_object_or_404, render
 # Create your views here.
 
 class CoordinadorCreateView(generic.CreateView):
-    model: Coordinador
+    model = Coordinador
     fields = '__all__'
-    template_name = 'coordinador/crear_cordinador.html'
+    template_name = 'coordinadores/crear_coordinadores.html'
+    success_url = reverse_lazy('coordinadores:listar')
 
 class CoordinadorListView(generic.ListView):
     queryset = Coordinador.objects.filter(activo=True)

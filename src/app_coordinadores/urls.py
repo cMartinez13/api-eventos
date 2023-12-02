@@ -1,5 +1,6 @@
 from . import views
 from django.urls import path
+from .views import activar_coordinador
 
 # NAME SPACE de la url de la app.
 app_name = "coordinadores"

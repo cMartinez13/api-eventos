@@ -1,15 +1,38 @@
-
-<h1>Listado de Empleados</h1>
-
-<ul>
+{% extends 'base.html' %} 
+​
+{% block titulo %}
+lista clientes 
+{% endblock titulo %}
+|
+{% block contenido %}
+<h2>Lista de clientes: </h2> 
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Legajo</th>
+      <th>Editar | Eliminar</th>
+      {% comment %} No muestra la columna activo porque es el borrado logico. {% endcomment %}
+    </tr>
+  </thead>
+  <tbody>
     {% for empleado in empleados %}
-        <li>
-            <strong>ID:</strong> {{ empleado.id }}<br>
-            <strong>Nombre:</strong> {{ empleado.nombre }}<br>
-            <strong>Apellido:</strong> {{ empleado.apellido }}<br>
-            <strong>Legajo:</strong> {{ empleado.legajo }}<br>
-            <strong>Activo:</strong> {{ empleado.activo }}<br>
-            
-        </li>
+    <tr>
+      <th> {{ empleado.id }} </th>
+      <td>{{ empleado.nombre }}</td>
+      <td>{{ empleado.apellido }}</td>
+      <td>{{ empleado.legajo }}</td>
+      <td> 
+        {% comment %}  Comentado porque no esta implementado..
+        <a href="{% url 'empleados:modificar' pk=empleado.id %}">Editar</a>
+        <a href="{% url 'empleados:desactivar' pk=empleado.id %}">Eliminar</a> 
+        {% endcomment %}
+    </td>
+    </tr>
     {% endfor %}
-</ul>
+  </tbody>
+</table>
+​
+{% endblock contenido %}

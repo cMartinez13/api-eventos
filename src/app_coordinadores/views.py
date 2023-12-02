@@ -6,13 +6,13 @@ from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404, render
 
 
-
 # Create your views here.
 
 class CoordinadorCreateView(generic.CreateView):
     model: Coordinador
     fields = '__all__'
     template_name = 'coordinador/crear_cordinador.html'
+
 
 class CoordinadorUpdateView(generic.UpdateView):
     model = Coordinador
@@ -23,6 +23,7 @@ class CoordinadorUpdateView(generic.UpdateView):
 
 
 class CoordinadorListView(generic.ListView):
+    queryset = Coordinador.objects.filter(activo=True)
     model = Coordinador
     fields = '__all__'
     context_object_name = 'coordinador'
@@ -34,7 +35,6 @@ class CoordinadorListView(generic.ListView):
 #     template_name = 'coordinadores/modificar.html'
 #     extra_context = {'titulo': 'Modificar Coordinador', 'mensaje_boton': 'ELIMINAR'}
 #     success_url = reverse_lazy('coordinadores:listar')
-
 
 
 def activar_coordinador(request, id):

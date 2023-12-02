@@ -6,7 +6,6 @@ from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404, render
 
 
-
 # Create your views here.
 
 class CoordinadorCreateView(generic.CreateView):
@@ -15,12 +14,14 @@ class CoordinadorCreateView(generic.CreateView):
     template_name = 'coordinadores/crear_coordinadores.html'
     success_url = reverse_lazy('coordinadores:listar')
 
+
 class CoordinadorListView(generic.ListView):
     queryset = Coordinador.objects.filter(activo=True)
     model = Coordinador
     fields = '__all__'
     context_object_name = 'coordinadores'
-    template_name= 'coordinadores/listar_coordinador.html'
+    template_name = 'coordinadores/listar_coordinador.html'
+
 
 class CoordinadorDesactivateView(generic.UpdateView):
     model = Coordinador 
@@ -31,10 +32,12 @@ class CoordinadorDesactivateView(generic.UpdateView):
     
 
 class CoordinadorUpdateView(generic.UpdateView):
+    queryset = Coordinador.objects.filter(activo=True)
     model = Coordinador
     fields = '__all__'
     template_name = 'coordinadores/modificar_coordinador.html'
-    extra_context = {'titulo': 'Modificar Coordinador', 'mensaje_boton': 'MODIFICAR'}
+    extra_context = {'titulo': 'Modificar Coordinador',
+                     'mensaje_boton': 'MODIFICAR'}
     success_url = reverse_lazy('coordinadores:listar')
 
 
@@ -48,7 +51,6 @@ class CoordinadorUpdateView(generic.UpdateView):
 #     success_url = reverse_lazy('coordinadores:listar')
 
 
-
 def activar_coordinador(request, id):
     coordinador = get_object_or_404(Coordinador, id=id)
 
@@ -57,4 +59,3 @@ def activar_coordinador(request, id):
 
     message = "El coordinador ha sido activado exitosamente."
     return render(request, 'activar_coordinador.html', {'message': message})
-

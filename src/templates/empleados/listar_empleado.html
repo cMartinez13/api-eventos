@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+​
+{% block titulo %}
+lista empleados 
+{% endblock titulo %}
+|
+{% block contenido %}
+<h2>Lista de Empleados: </h2> 
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Apellido</th>
+      <th>Nombre</th>
+      <th>Legajo</th>
+      <th>Activo</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for empleado in empleados %}
+    <tr>
+      <th> {{ empleado.id }} </th>
+      <td>{{ empleado.apellido }}</td>
+      <td>{{ empleado.nombre }}</td>
+      <td>{{ empleado.legajo }}</td>
+      <td>{{ empleado.activo }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+​
+{% endblock contenido %}

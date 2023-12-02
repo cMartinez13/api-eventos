@@ -8,3 +8,6 @@ class Empleado(models.Model):
     apellido = models.CharField(max_length=255)
     legajo = models.IntegerField()
     activo = models.BooleanField(default=True)
+
+    def __str__(self):
+        return F"{self.nombre} | {self.apellido} {self.legajo} {self.activo}"

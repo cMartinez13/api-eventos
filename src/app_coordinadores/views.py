@@ -7,17 +7,17 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 
-class CoordinadorUpdateView(generic.UpdateView):
-    model = Coordinador
-    fields = ['nombre', 'apellido', 'documento']
-    template_name = 'coordinadores/modificar.html'
-
-    # success_url = reverse_lazy("coordinador:listar")
-
-
 class CoordinadorListView(generic.ListView):
+    queryset = Coordinador.objects.filter(activo=True)
     model = Coordinador
     fields = '__all__'
-    context_object_name = 'coordinador'
-    template_name = 'coordinadores/lista.html'
+    context_object_name = 'coordinadores'
+    template_name= 'coordinadores/listar_coordinador.html'
+
+class CoordinadorUpdateView(generic.UpdateView):
+    model = Coordinador
+    fields = '__all__'
+    template_name = 'coordinadores/modificar_coordinador.html'
+    extra_context = {'titulo': 'Modificar Coordinador', 'mensaje_boton': 'MODIFICAR'}
+    success_url = reverse_lazy('coordinadores:listar')
 

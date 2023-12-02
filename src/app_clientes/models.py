@@ -17,5 +17,5 @@ class Cliente(models.Model):
     def get_absolute_url_mod(self):
         return reverse('clientes:modificar', kwargs={"pk": self.id})
     
-    def get_absolute_url_eli(self):
-        return reverse('clientes:desactivar', kwargs={"pk": self.pk})
+def get_absolute_url_activar(self):
+    return reverse('clientes:activar', kwargs={"pk": self.pk})

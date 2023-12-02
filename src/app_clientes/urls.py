@@ -10,6 +10,7 @@ urlpatterns = [
     path('detalle/<int:pk>/', views.ClienteDetailView.as_view(), name='detalle'),
     path('modificar/<int:pk>/', views.ClienteUpdateView.as_view(), name='modificar'),
     path('desactivar/<int:pk>/', views.ClienteDesactivateView.as_view(), name='desactivar'),
+    path('activar/<int:pk>/', views.activar_cliente, name='activar'),
     # path('eliminar/<int:pk>/', views.ClienteDeleteView.as_view(), name='eliminar'),
 ]
 

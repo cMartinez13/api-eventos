@@ -11,5 +11,11 @@ class Cliente(models.Model):
     def __str__(self):
         return F"{self.nombre} | {self.apellido} {self.activo}"
     
-def get_absolute_url(self):
-    return reverse('clientes:detalle', kwargs={'pk': self.id})
+    def get_absolute_url(self):
+        return reverse('clientes:detalle', kwargs={'pk': self.id})
+
+    def get_absolute_url_mod(self):
+        return reverse('clientes:modificar', kwargs={"pk": self.id})
+    
+    def get_absolute_url_eli(self):
+        return reverse('clientes:desactivar_cliente', kwargs={"pk": self.id})

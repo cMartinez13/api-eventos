@@ -13,18 +13,28 @@ lista clientes
       <th>Apellido</th>
       <th>Nombre</th>
       <th>Activo</th>
+      <th>Modificar</th>
+      <th>Desactivar</th>
     </tr>
   </thead>
   <tbody>
     {% for cliente in clientes %}
     <tr>
-      <th> {{ cliente.id }} </th>
+      <th scope="row">
+        <a href= "{{ cliente.get_absolute_url }}">
+        {{cliente.pk}}
+        </a>
+      </th>
       <td>{{ cliente.apellido }}</td>
       <td>{{ cliente.nombre }}</td>
       <td>{{ cliente.activo }}</td>
+      <td> <a href= "{{ cliente.get_absolute_url_mod }}">
+        🖊️</td>
+      <td> 
+        ❌</td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
-​
+​<a href= "{% url 'clientes:crear'%}">Agregar un nuevo cliente 🧑</a>
 {% endblock contenido %}

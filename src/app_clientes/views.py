@@ -39,13 +39,19 @@ class ClienteUpdateView(generic.UpdateView):
 #     success_url = reverse_lazy('clientes:listar')
 
 
+class ClienteDesactivateView(generic.UpdateView):
+    model = Cliente
+    fields = ['activo']
+    template_name = 'clientes/modificar_cliente.html'
+    extra_context = {'titulo': 'Desactivar Cliente', 'mensaje_boton': 'DESACTIVAR'}
+    success_url = reverse_lazy('clientes:listar')
 
-def desactivar_cliente(request, id):
-    cliente = get_object_or_404(Cliente, id=id)
-    cliente.activo = False
-    cliente.save()
-    message = "El cliente ha sido desactivado exitosamente."
-    return render(request, 'desactivar_cliente.html', {'message': message})
+#def desactivar_cliente(request, id):
+#    cliente = get_object_or_404(Cliente, id=id)
+#    cliente.activo = False
+#    cliente.save()
+#    message = "El cliente ha sido desactivado exitosamente."
+#    return render(request, 'desactivar_cliente.html', {'message': message})
 
 
 

@@ -30,7 +30,7 @@ lista clientes
       <td>{{ cliente.activo }}</td>
       <td> <a href= "{{ cliente.get_absolute_url_mod }}">
         🖊️</td>
-      <td> 
+      <td> <a href= "{{ cliente.get_absolute_url_eli }}">
         ❌</td>
     </tr>
     {% endfor %}

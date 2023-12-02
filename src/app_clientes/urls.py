@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import desactivar_cliente
+# from .views import desactivar_cliente
 
 app_name = 'clientes'
 
@@ -9,7 +9,7 @@ urlpatterns = [
     path('listar/', views.ClienteListView.as_view(), name='listar'),
     path('detalle/<int:pk>/', views.ClienteDetailView.as_view(), name='detalle'),
     path('modificar/<int:pk>/', views.ClienteUpdateView.as_view(), name='modificar'),
-    path('desactivar/<int:id>/', desactivar_cliente, name='desactivar_cliente'),
+    path('desactivar/<int:pk>/', views.ClienteDesactivateView.as_view(), name='desactivar'),
     # path('eliminar/<int:pk>/', views.ClienteDeleteView.as_view(), name='eliminar'),
 ]
 

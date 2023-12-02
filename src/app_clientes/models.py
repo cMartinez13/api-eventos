@@ -18,4 +18,4 @@ class Cliente(models.Model):
         return reverse('clientes:modificar', kwargs={"pk": self.id})
     
     def get_absolute_url_eli(self):
-        return reverse('clientes:desactivar_cliente', kwargs={"pk": self.id})
+        return reverse('clientes:desactivar', kwargs={"pk": self.pk})

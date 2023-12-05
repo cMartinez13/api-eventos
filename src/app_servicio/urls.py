@@ -7,4 +7,5 @@ app_name = 'servicios'
 urlpatterns = [
     path('nuevo/', views.ServicioCreateView.as_view(), name='nuevo'),
     path('activar/<int:pk>/', views.activar_servicio, name='activar'),
+    path('listado/', views.listado_servicios, name='listado_servicios'),
 ]

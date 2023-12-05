@@ -23,3 +23,8 @@ def activar_servicio(request, pk):
     messages.success(
         request, F"El Servicio {servicio.nombre}  ha sido activado exitosamente.")
     return redirect('/servicios/listar/')
+
+
+def listado_servicios(request):
+    servicios = Servicio.objects.all()
+    return render(request, 'servicios/listado_servicios.html', {'servicios': servicios})

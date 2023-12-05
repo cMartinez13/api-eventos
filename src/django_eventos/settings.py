@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'app_clientes',
     'app_coordinadores',
     'app_empleados',
+    'api',
     # Terceros
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +138,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuracion de django rest framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}

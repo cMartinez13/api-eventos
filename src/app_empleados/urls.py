@@ -3,8 +3,8 @@ from . import views
 
 app_name = 'empleados'
 
-urlpatterns = [    
+urlpatterns = [
     path('listar/', views.EmpleadoListView.as_view(), name='listar'),
-    path('nuevo/', views.EmpleadoCreateView.as_view(), name='crear'),
-    
+    path('nuevo/', views.EmpleadoCreateView.as_view(), name='nuevo'),
+
 ]

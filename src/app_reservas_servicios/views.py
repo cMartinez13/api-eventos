@@ -10,3 +10,11 @@ from .models import ReservaServicio
 def listado_reservas(request):
     reservas = ReservaServicio.objects.all()
     return render(request, 'listado_reservas.html', {'reservas': reservas})
+
+
+class ResevasUpdateView(generic.UpdateView):
+    model = ReservaServicio
+    fields = '__all__'
+    template_name = 'reservaServicio/modificar_reserva_servicio.html'
+    extra_context = {'titulo': 'Modificar Reserva de Servicio', 'mensaje_boton': 'MODIFICAR'}
+    success_url = reverse_lazy('clientes:listar')

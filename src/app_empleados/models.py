@@ -10,4 +10,4 @@ class Empleado(models.Model):
     activo = models.BooleanField(default=True)
 
     def __str__(self):
-        return F"{self.nombre} | {self.apellido} {self.legajo} {self.activo}"
+        return F"{self.nombre} {self.apellido} "

@@ -6,3 +6,7 @@ from .models import ReservaServicio
 
 # Create your views here.
 
+
+def listado_reservas(request):
+    reservas = ReservaServicio.objects.all()
+    return render(request, 'listado_reservas.html', {'reservas': reservas})

@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import Empleado
+from app_empleados.models import Empleado
 
 class EmpleadoSerializer(serializers.ModelSerializer):
     class Meta:

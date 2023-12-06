@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import Empleado
+from app_empleados.models import Empleado
 from .serializers import EmpleadoSerializer
 
 # Create your views here.

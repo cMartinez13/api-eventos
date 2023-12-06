@@ -9,8 +9,8 @@
     {% csrf_token %}
     <h2>Estas seguro de eliminar "{{ object }}"?</h2>
     {{ form }}
-    <a class="" href="{% url 'beneficiario:listar'%}" role="button">Volver</a>
-    <input class="" type="submit" value="{{ mensaje_boton }}">
+    <a class="btn btn-warning" href="{% url 'beneficiario:listar'%}" role="button">Volver</a>
+    <input class="btn btn-danger" type="submit" value="{{ mensaje_boton }}">
     
 </form>
 

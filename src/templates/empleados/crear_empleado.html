@@ -1,5 +1,10 @@
-
-
+{% extends 'base.html' %} 
+​
+{% block titulo %}
+    {{ titulo }}
+{% endblock titulo %}
+|
+{% block contenido %}
 <h1> Alta de empleado: </h1>
 
 {% comment %} input -> nombre, apellido, numero_legajo {% endcomment %}
@@ -8,5 +13,7 @@
         {% csrf_token %}
         {{ form.as_table }}
     </table>
-    <input type="submit" value="Dar Alta">
+    <button type="submit"> {{ mensaje_boton }}" </button>
 </form>
+
+{% endblock contenido %}

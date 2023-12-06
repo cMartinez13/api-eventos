@@ -11,3 +11,12 @@ class Servicio(models.Model):
 
     def __str__(self):
         return F"{self.nombre} "
+
+    def get_absolute_url(self):
+        return reverse('servicios:detalle', kwargs={'pk': self.id})
+
+    def get_absolute_url_desactivar(self):
+        return reverse('servicios:desactivar', kwargs={"pk": self.id})
+
+    def get_absolute_url_mod(self):
+        return reverse('servicios:modificar', kwargs={"pk": self.pk})

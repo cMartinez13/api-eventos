@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views import generic
 from .models import Coordinador
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
@@ -16,20 +16,30 @@ class CoordinadorCreateView(generic.CreateView):
 
 
 class CoordinadorListView(generic.ListView):
-    queryset = Coordinador.objects.filter(activo=True)
+    queryset = Coordinador.objects.all()
     model = Coordinador
     fields = '__all__'
     context_object_name = 'coordinadores'
     template_name = 'coordinadores/listar_coordinador.html'
 
 
-class CoordinadorDesactivateView(generic.UpdateView):
-    model = Coordinador 
-    fields = ['activo']
-    template_name = 'coordinadores/modificar_coordinador.html'
-    extra_context = {'titulo': 'Desactivar Coordinador', 'mensaje_boton': 'DESACTIVAR'}
-    success_url = reverse_lazy('coordinadores:listar')
-    
+# class CoordinadorDesactivateView(generic.UpdateView):
+#     model = Coordinador
+#     fields = ['activo']
+#     template_name = 'coordinadores/modificar_coordinador.html'
+#     extra_context = {'titulo': 'Desactivar Coordinador',
+#                      'mensaje_boton': 'DESACTIVAR'}
+#     success_url = reverse_lazy('coordinadores:listar')
+
+def desactivar_coordinador(request, pk):
+    coordinador = get_object_or_404(Coordinador, pk=pk)
+
+    coordinador.activo = False
+    coordinador.save()
+
+    message = "El coordinador ha sido desactivado."
+    return redirect('coordinadores:listar')
+
 
 class CoordinadorUpdateView(generic.UpdateView):
     queryset = Coordinador.objects.filter(activo=True)
@@ -41,21 +51,11 @@ class CoordinadorUpdateView(generic.UpdateView):
     success_url = reverse_lazy('coordinadores:listar')
 
 
-    
-
-#class CoordinadorDeleteView(generic.UpdateView):
-#     model = Coordinador
-#     fields = '__all__'
-#     template_name = 'coordinadores/modificar.html'
-#     extra_context = {'titulo': 'Modificar Coordinador', 'mensaje_boton': 'ELIMINAR'}
-#     success_url = reverse_lazy('coordinadores:listar')
-
-
-def activar_coordinador(request, id):
-    coordinador = get_object_or_404(Coordinador, id=id)
+def activar_coordinador(request, pk):
+    coordinador = get_object_or_404(Coordinador, pk=pk)
 
     coordinador.activo = True
     coordinador.save()
 
     message = "El coordinador ha sido activado exitosamente."
-    return render(request, 'activar_coordinador.html', {'message': message})
+    return redirect('coordinadores:listar')

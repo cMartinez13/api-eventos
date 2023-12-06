@@ -15,6 +15,15 @@ def listado_reservas(request):
 class ResevasUpdateView(generic.UpdateView):
     model = ReservaServicio
     fields = '__all__'
-    template_name = 'reservaServicio/modificar_reserva_servicio.html'
-    extra_context = {'titulo': 'Modificar Reserva de Servicio', 'mensaje_boton': 'MODIFICAR'}
+    template_name = 'reservas_servicios/modificar_reserva_servicio.html'
+    extra_context = {'titulo': 'Modificar Reserva de Servicio',
+                     'mensaje_boton': 'MODIFICAR'}
+    success_url = reverse_lazy('clientes:listar')
+
+
+class ReservasDeleteView(generic.DeleteView):
+    model = ReservaServicio
+    template_name = 'reservas_servicios/confirm_delete.html'
+    extra_context = {'titulo': 'Eliminar Reserva de Servicio',
+                     'mensaje_boton': 'ELIMINAR'}
     success_url = reverse_lazy('clientes:listar')

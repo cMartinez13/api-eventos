@@ -1,6 +1,8 @@
 
 from rest_framework import serializers
 from app_empleados.models import Empleado
+from app_coordinadores.models import Coordinador
+from app_servicio.models import Servicio
 
 
 class EmpleadoSerializerList(serializers.ModelSerializer):
@@ -16,16 +18,24 @@ class EmpleadoSerializer(serializers.ModelSerializer):
 
 
 class CoordinadorSerializerList(serializers.ModelSerializer):
-    pass
+    class Meta:
+        model = Coordinador
+        fields = ['id', 'nombre']
 
 
 class CoordinadorSerializer(serializers.ModelSerializer):
-    pass
+    class Meta:
+        model = Coordinador
+        fields = '__all__'
 
 
 class ServicioSerializerList(serializers.ModelSerializer):
-    pass
+    class Meta:
+        model = Servicio
+        fields = ['id', 'nombre']
 
 
 class ServicioSerializer(serializers.ModelSerializer):
-    pass
+    class Meta:
+        model = Servicio
+        fields = '__all__'

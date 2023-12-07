@@ -28,9 +28,13 @@ Reserva de servicios
       <td>{{ reserva_servicios.servicio }}</td>
       <td>{{ reserva_servicios.empleado }}</td>
       <td>{{ reserva_servicios.coordinador }}</td>
+      <td> <a href= "{{ reserva_servicios.get_absolute_url_mod }}">
+        🖊️</td>
+      <td> <a href= "{{ reserva_servicios.get_absolute_url_eliminar }}">
+        ❌</td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
-​
+​​​<a class="btn btn-success" href= "{% url 'reserva_servicios:crear'%}">Agregar nueva Reserva 🎉</a>
 {% endblock contenido %}

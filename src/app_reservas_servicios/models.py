@@ -21,3 +21,9 @@ class ReservaServicio(models.Model):
 
     def __str__(self) -> str:
         return F"Cliente: {self.cliente} - Servicio: {self.servicio} - Coordinador: {self.coordinador} - Empleado: {self.empleado} "
+    
+    def get_absolute_url_eliminar(self):
+        return reverse('reserva_servicios:eliminar', kwargs={"pk": self.id})
+
+    def get_absolute_url_mod(self):
+        return reverse('reserva_servicios:modificar', kwargs={"pk": self.pk})

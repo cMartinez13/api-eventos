@@ -17,11 +17,11 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RemoveField(
             model_name='reservaservicio',
-            name='cordinador',
+            name='coordinador',
         ),
         migrations.RemoveField(
             model_name='reservaservicio',
-            name='sevicio',
+            name='servicio',
         ),
         migrations.AddField(
             model_name='reservaservicio',

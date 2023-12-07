@@ -18,9 +18,9 @@ class Migration(migrations.Migration):
                 ('fecha_reserva', models.DateField(verbose_name='')),
                 ('fecha_servicio', models.DateField(verbose_name='')),
                 ('cliente', models.CharField(max_length=30)),
-                ('sevicio', models.TextField()),
+                ('servicio', models.TextField()),
                 ('empleado', models.CharField(max_length=30)),
-                ('cordinador', models.CharField(max_length=30)),
+                ('coordinador', models.CharField(max_length=30)),
             ],
         ),
     ]

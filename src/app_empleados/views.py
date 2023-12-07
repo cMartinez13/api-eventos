@@ -7,7 +7,7 @@ from .models import Empleado
 
 
 class EmpleadoCreateView(generic.CreateView):
-    model: Empleado
+    model = Empleado
     fields = '__all__'
     template_name = 'empleados/crear_empleado.html'
     extra_context = {'titulo': 'Alta de Empleado', 'mensaje_boton': 'CREAR'}

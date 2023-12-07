@@ -21,3 +21,11 @@ class CoordinadorSerializerList(serializers.ModelSerializer):
 
 class CoordinadorSerializer(serializers.ModelSerializer):
     pass
+
+
+class ServicioSerializerList(serializers.ModelSerializer):
+    pass
+
+
+class ServicioSerializer(serializers.ModelSerializer):
+    pass

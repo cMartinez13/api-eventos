@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre de tu Proyecto</title>
+</head>
+<body>
+    <h1>Bienvenido al Proyecto</h1>
+    <ul>
+        <li><a href="{% url 'lista_clientes' %}">Listado de Clientes</a></li>
+        <li><a href="{% url 'lista_empleados' %}">Listado de Empleados</a></li>
+        <li><a href="{% url 'lista_coordinadores' %}">Listado de Coordinadores</a></li>
+        <li><a href="{% url 'lista_servicios' %}">Listado de Servicios</a></li>
+        <li><a href="{% url 'reserva_servicios' %}">Reserva de Servicios</a></li>
+    </ul>
+</body>
+</html>

@@ -8,15 +8,12 @@ from django.http import JsonResponse
 # Create your views here.
 
 
-def listado_reservas(request):
-    reservas = ReservaServicio.objects.all()
-    return render(request, 'listado_reservas.html', {'reservas': reservas})
-
-class ReservasCreateView(generic.CreateView):    
+class ReservasCreateView(generic.CreateView):
     model = ReservaServicio
     fields = '__all__'
     template_name = 'reservas_servicios/modificar_reserva_servicio.html'
-    extra_context = {'titulo': 'Realizar reserva de servicio', 'mensaje_boton': 'CREAR'}
+    extra_context = {'titulo': 'Realizar reserva de servicio',
+                     'mensaje_boton': 'CREAR'}
     success_url = reverse_lazy('reserva_servicios:listar')
 
 
@@ -36,6 +33,7 @@ class ReservasDeleteView(generic.DeleteView):
                      'mensaje_boton': 'ELIMINAR'}
     success_url = reverse_lazy('reserva_servicios:listar')
 
+
 class ReservasListView(generic.ListView):
     queryset = ReservaServicio.objects.all()
     model = ReservaServicio
@@ -43,10 +41,18 @@ class ReservasListView(generic.ListView):
     context_object_name = 'reserva_servicios'
     template_name = 'reservas_servicios/listar_reserva_servicio.html'
 
+
+def listado_reservas(request):
+    reservas = ReservaServicio.objects.all()
+    return render(request, 'listado_reservas.html', {'reservas': reservas})
+
+
 def lista_reservas(request):
     reservas = ReservaServicio.objects.all()
-    data = [{'id': reserva.id, 'nombre': reserva.nombre} for reserva in reservas]
+    data = [{'id': reserva.id, 'nombre': reserva.nombre}
+            for reserva in reservas]
     return JsonResponse(data, safe=False)
+
 
 def detalle_reserva(request, id):
     reserva = get_object_or_404(ReservaServicio, id=id)

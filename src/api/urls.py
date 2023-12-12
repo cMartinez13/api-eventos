@@ -21,6 +21,10 @@ urlpatterns = [
     path('clientes/', views.ListaClientes.as_view(), name='lista_clientes'),
     path('clientes/<int:pk>/', views.DetalleClientes.as_view(),
          name='detalle_clientes'),
+    path('reservas_servicios/', views.ListaReservaServicios.as_view(),
+         name='lista_reservas_servicios'),
+    path('reservas_servicios/<int:pk>/', views.DetalleReservaServicios.as_view(),
+         name='detalle_reservas_servicios'),
 
 
 ]

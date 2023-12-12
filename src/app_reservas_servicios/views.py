@@ -40,24 +40,3 @@ class ReservasListView(generic.ListView):
     fields = '__all__'
     context_object_name = 'reserva_servicios'
     template_name = 'reservas_servicios/listar_reserva_servicio.html'
-
-
-def listado_reservas(request):
-    reservas = ReservaServicio.objects.all()
-    return render(request, 'listado_reservas.html', {'reservas': reservas})
-
-
-def lista_reservas(request):
-    reservas = ReservaServicio.objects.all()
-    data = [{'id': reserva.id, 'nombre': reserva.nombre}
-            for reserva in reservas]
-    return JsonResponse(data, safe=False)
-
-
-def detalle_reserva(request, id):
-    reserva = get_object_or_404(ReservaServicio, id=id)
-    data = {
-        'id': reserva.id,
-        'nombre': reserva.nombre,
-    }
-    return JsonResponse(data)

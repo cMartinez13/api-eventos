@@ -5,10 +5,6 @@ from django.urls import reverse_lazy
 from .models import Cliente
 
 
-def home(request):
-    return render(request, 'home.html')
-
-
 class ClienteCreateView(generic.CreateView):    
     model = Cliente
     fields = '__all__'

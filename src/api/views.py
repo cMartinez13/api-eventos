@@ -9,6 +9,13 @@ from .serializers import EmpleadoSerializer, EmpleadoSerializerList, Coordinador
 
 # Create your views here.
 
+
+
+def home_api(request):
+    return render(request, 'api.html')
+
+
+
 # EMPLEADOS
 class ListaEmpleados(generics.ListAPIView):
     queryset = Empleado.objects.all()

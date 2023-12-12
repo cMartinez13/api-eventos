@@ -7,6 +7,7 @@ from . import views
 app_name = 'api'
 
 urlpatterns = [
+    path('home/api/', views.home_api.as_view(), name='home_api'),
     path('empleados/', views.ListaEmpleados.as_view(), name='lista_empleados'),
     path('empleados/<int:pk>/', views.DetalleEmpleado.as_view(), name='detalle_empleado'),
     path('coordinadores/', views.ListaCoordinadores.as_view(), name='lista_coordinadores'),

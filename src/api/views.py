@@ -3,7 +3,9 @@ from rest_framework import generics
 from app_empleados.models import Empleado
 from app_coordinadores.models import Coordinador
 from app_servicio.models import Servicio
-from .serializers import EmpleadoSerializer, EmpleadoSerializerList, CoordinadorSerializerList, CoordinadorSerializer, ServicioSerializer, ServicioSerializerList
+from app_clientes.models import Cliente
+from .serializers import EmpleadoSerializer, EmpleadoSerializerList, CoordinadorSerializerList, CoordinadorSerializer, ServicioSerializer, ServicioSerializerList, ClienteSerializerList, ClienteSerializer
+
 
 # Create your views here.
 
@@ -36,3 +38,13 @@ class ListaServicios(generics.ListAPIView):
 class DetalleServicios(generics.RetrieveAPIView):
     queryset = Servicio.objects.all()
     serializer_class = ServicioSerializer
+    
+    
+class ListaClientes(generics.ListAPIView):
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializerList
+    
+    
+class DetalleClientes(generics.RetrieveAPIView):
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer

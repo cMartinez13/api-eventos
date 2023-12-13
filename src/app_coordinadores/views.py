@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import render
 from django.views import generic
-from .models import Coordinador
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
+
+from .models import Coordinador
 
 
 # Create your views here.

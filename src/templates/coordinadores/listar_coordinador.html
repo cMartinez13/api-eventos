@@ -16,13 +16,13 @@ lista coordinadores
       <th>Documento</th>
       <th>Fecha de Alta</th>
       <th>Activo</th>
-      <th>Acciones</th>
+      <th>Editar | Eliminar</th>
     </tr>
   </thead>
   <tbody>
     {% for coordinador in coordinadores %}
     <tr>
-      <th> {{ coordinador.id }} </th>
+      <th>{{ coordinador.id }} </th>
       <td>{{ coordinador.apellido }}</td>
       <td>{{ coordinador.nombre }}</td>
       <td>{{ coordinador.documento }}</td>

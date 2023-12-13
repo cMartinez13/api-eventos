@@ -25,17 +25,14 @@ lista empleados
       <td>{{ empleado.nombre }}</td>
       <td>{{ empleado.apellido }}</td>
       <td>{{ empleado.legajo }}</td>
-      <td> 
-        {% comment %} Comentado porque falta implementar.
-         <a href="{% url 'empleados:modificar' pk=empleado.id %}">Editar</a>
+      <td>
+        <a class="btn btn-warning" href="{% url 'empleados:modificar' pk=empleado.id %}">Editar</a>
         {% if empleado.activo  %}
-          <a href="{% url 'empleados:desactivar' pk=empleado.id %}">Desactivar</a> 
+          <a class="btn btn-danger" href="{% url 'empleados:desactivar' pk=empleado.id %}">Desactivar</a> 
         {% else %}
-          <a href="{% url 'empleados:activar' pk=empleado.id %}">Activar</a> 
-        {% endif %} 
-        {% endcomment %}
-        
-    </td>
+          <a class="btn btn-primary" href="{% url 'empleados:activar' pk=empleado.id %}">Activar</a> 
+        {% endif %}
+        </td> 
     </tr>
     {% endfor %}
   </tbody>

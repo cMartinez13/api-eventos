@@ -23,24 +23,6 @@ class CoordinadorListView(generic.ListView):
     template_name = 'coordinadores/listar_coordinador.html'
 
 
-# class CoordinadorDesactivateView(generic.UpdateView):
-#     model = Coordinador
-#     fields = ['activo']
-#     template_name = 'coordinadores/modificar_coordinador.html'
-#     extra_context = {'titulo': 'Desactivar Coordinador',
-#                      'mensaje_boton': 'DESACTIVAR'}
-#     success_url = reverse_lazy('coordinadores:listar')
-
-def desactivar_coordinador(request, pk):
-    coordinador = get_object_or_404(Coordinador, pk=pk)
-
-    coordinador.activo = False
-    coordinador.save()
-
-    message = "El coordinador ha sido desactivado."
-    return redirect('coordinadores:listar')
-
-
 class CoordinadorUpdateView(generic.UpdateView):
     queryset = Coordinador.objects.filter(activo=True)
     model = Coordinador
@@ -58,4 +40,14 @@ def activar_coordinador(request, pk):
     coordinador.save()
 
     message = "El coordinador ha sido activado exitosamente."
+    return redirect('coordinadores:listar')
+
+
+def desactivar_coordinador(request, pk):
+    coordinador = get_object_or_404(Coordinador, pk=pk)
+
+    coordinador.activo = False
+    coordinador.save()
+
+    message = "El coordinador ha sido desactivado."
     return redirect('coordinadores:listar')

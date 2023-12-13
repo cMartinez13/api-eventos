@@ -5,7 +5,8 @@ Reserva de servicios
 {% endblock titulo %}
 |
 {% block contenido %}
-
+<h1>Listado de Servicios: </h1>
+​​​<a class="btn btn-success" href= "{% url 'reserva_servicios:nuevo'%}">Agregar nueva Reserva 🎉</a>
 <table class="table">
   <thead>
     <tr>
@@ -16,25 +17,25 @@ Reserva de servicios
       <th>Servicio</th>
       <th>Empleado</th>
       <th>Coordinador</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
-    {% for reserva_servicios in reserva_servicios %}
+    {% for reserva_servicio in reserva_servicios %}
     <tr>
-      <th> {{ reserva_servicios.id }} </th>
-      <td>{{ reserva_servicios.fecha_reserva }}</td>
-      <td>{{ reserva_servicios.fecha_servicio }}</td>
-      <td>{{ reserva_servicios.cliente }}</td>
-      <td>{{ reserva_servicios.servicio }}</td>
-      <td>{{ reserva_servicios.empleado }}</td>
-      <td>{{ reserva_servicios.coordinador }}</td>
-      <td> <a href= "{{ reserva_servicios.get_absolute_url_mod }}">
-        🖊️</td>
-      <td> <a href= "{{ reserva_servicios.get_absolute_url_eliminar }}">
-        ❌</td>
+      <th> {{ reserva_servicio.id }} </th>
+      <td>{{ reserva_servicio.fecha_reserva }}</td>
+      <td>{{ reserva_servicio.fecha_servicio }}</td>
+      <td>{{ reserva_servicio.cliente }}</td>
+      <td>{{ reserva_servicio.servicio }}</td>
+      <td>{{ reserva_servicio.empleado }}</td>
+      <td>{{ reserva_servicio.coordinador }}</td>
+      <td>
+        <a class="btn btn-warning" href="{% url 'reserva_servicios:modificar' pk=reserva_servicio.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'reserva_servicios:eliminar' pk=reserva_servicio.id %}">Eliminar</a> 
+        </td> 
     </tr>
     {% endfor %}
   </tbody>
 </table>
-​​​<a class="btn btn-success" href= "{% url 'reserva_servicios:nuevo'%}">Agregar nueva Reserva 🎉</a>
 {% endblock contenido %}

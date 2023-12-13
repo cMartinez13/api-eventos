@@ -22,8 +22,7 @@ lista clientes
       <th>#</th>
       <th>Apellido</th>
       <th>Nombre</th>
-      <th>Modificar</th>
-      <th>Activar / Desactivar</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -37,14 +36,12 @@ lista clientes
       <td>{{ cliente.apellido }}</td>
       <td>{{ cliente.nombre }}</td>
       <td>
-      <a class="btn btn-warning" href="{% url 'clientes:modificar' pk=cliente.id %}">Editar</a>
-      </td>
-      <td>
-      {% if cliente.activo  %}
-      <a class="btn btn-danger" href= "{% url 'clientes:desactivar' pk=cliente.pk%}"> Desactivar </a>
-      {% else %}
-      <a class="btn btn-primary" href= "{% url 'clientes:activar' pk=cliente.pk%}">  Activar</a>
-      {% endif %}
+        <a class="btn btn-warning" href="{% url 'clientes:modificar' pk=cliente.id %}">Editar</a>
+        {% if cliente.activo  %}
+          <a class="btn btn-danger" href= "{% url 'clientes:desactivar' pk=cliente.pk%}"> Desactivar </a>
+        {% else %}
+         <a class="btn btn-primary" href= "{% url 'clientes:activar' pk=cliente.pk%}">  Activar</a>
+       {% endif %}
     </td>
     </tr>
   {% endfor %}

@@ -16,6 +16,9 @@ urlpatterns = [
     path('servicios/', views.ListaServicios.as_view(), name='lista_servicios'),
     path('servicios/<int:pk>/', views.DetalleServicios.as_view(),
          name='detalle_servicios'),
-
+    path('reservas_servicios/', views.ListaReservaServicios.as_view(),
+         name='lista_reservas_servicios'),
+    path('reservas_servicios/<int:pk>/', views.DetalleReservaServicios.as_view(),
+         name='detalle_reservas_servicios'),
 
 ]

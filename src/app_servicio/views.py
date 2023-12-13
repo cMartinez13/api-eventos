@@ -17,7 +17,7 @@ class ServicioCreateView(generic.CreateView):
 
 
 class ServicioListView(generic.ListView):
-    queryset = Servicio.objects.filter(activo=True)
+    queryset = Servicio.objects.all()
     model = Servicio
     fields = '__all__'
     context_object_name = 'servicios'

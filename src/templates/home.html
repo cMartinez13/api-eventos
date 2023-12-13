@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block titulo %}  Home  {% endblock %}
+    
+
+    {% block contenido %}
+    <h1>Bienvenido al Proyecto</h1>
+    <ul>
+        <li><a href="{% url 'clientes:listar' %}">Listado de Clientes</a></li>
+        <li><a href="{% url 'empleados:listar' %}">Listado de Empleados</a></li>
+        <li><a href="{% url 'coordinadores:listar' %}">Listado de Coordinadores</a></li>
+        <li><a href="{% url 'servicios:listar' %}">Listado de Servicios</a></li>
+        <li><a href="{% url 'reserva_servicios:listar' %}">Reserva de Servicios</a></li>
+    </ul>
+    {% endblock contenido %}

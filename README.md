@@ -57,4 +57,4 @@ https://github.com/cMartinez13/api-eventos/
 - Jinja2 3.1.2
 - MarkupSafe 2.1.3
 - pytz 2023.3.post1
-- tzdata
+- tzdata 2023.3

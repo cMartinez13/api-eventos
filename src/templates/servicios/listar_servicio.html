@@ -14,6 +14,7 @@ lista Servicios
 {% endfor%}
 
 <h2>Lista de Servicios: </h2> 
+​​<a class="btn btn-success" href= "{% url 'servicios:nuevo'%}">Agregar un nuevo Servicio</a>
 <table class="table">
   <thead>
     <tr>
@@ -21,7 +22,7 @@ lista Servicios
       <th>Nombre</th>
       <th>Descripción</th>
       <th>Precio</th>
-      <th>Activo</th>
+      <th>Editar | Eliminar</th>
     </tr>
   </thead>
   <tbody>
@@ -35,14 +36,17 @@ lista Servicios
       <td>{{ servicio.nombre }}</td>
       <td>{{ servicio.descripcion }}</td>
       <td>${{ servicio.precio }}</td>
-      <td>{{ servicio.activo }}</td>
-      <td> <a href= "{{ servicio.get_absolute_url_mod }}">
-        🖊️</td>
-      <td> <a href= "{{ servicio.get_absolute_url_desactivar }}">
-        ❌</td>
+      <td> 
+      <a class="btn btn-warning" href="{% url 'servicios:modificar' pk=servicio.id %}">Editar</a>
+      {% if servicio.activo  %}
+        <a class="btn btn-danger" href="{% url 'servicios:desactivar' pk=servicio.id %}">Desactivar</a> 
+      {% else %}
+        <a class="btn btn-primary" href="{% url 'servicios:activar' pk=servicio.id %}">Activar</a> 
+      {% endif %}
     </tr>
     {% endfor %}
+  </td>
   </tbody>
 </table>
-​​<a class="btn btn-success" href= "{% url 'servicios:nuevo'%}">Agregar un nuevo Servicio 🎉</a>
+
 {% endblock contenido %}

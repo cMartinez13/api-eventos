@@ -10,7 +10,8 @@
         {{ form.as_table }}
         {% csrf_token %}
     </table>
-    <button type="submit">{{mensaje_boton}}</button>
+    <a class = "btn btn-warning" href="{% url 'clientes:listar' %}">Volver</a>
+    <button class="btn btn-success" type="submit">{{mensaje_boton}}</button>
 </form>
 
 {% endblock contenido %}

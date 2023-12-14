@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block titulo %}  Home API {% endblock %}
+
+{% block contenido %}
+
+<h2>Listado de endpoints: </h2> 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Petición</th>
+      <th>URL</th>
+      <th>Descripción</th>
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>GET</td> 
+        <td><a href="{% url 'api:lista_empleados' %}">Listado de empleados</a> </td>
+        <td>Retorna el listado de datos de todos los empleados activos</td> 
+        
+    </tr>
+    <tr>
+        <td>GET</td> 
+        <td><a href="{% url 'api:lista_coordinadores' %}">Listado de coordinadores</a> </td>
+        <td>Retorna el listado de datos de todos los coordinadores activos</td> 
+        
+    </tr>
+      
+    <tr>
+        <td>GET</td> 
+        <td><a href="{% url 'api:lista_servicios' %}">Listado de servicios</a> </td>
+        <td>Retorna el listado de datos de todos los servicios activos que posee la empresa</td>
+
+    </tr>
+      
+    <tr>
+        <td>GET</td> 
+        <td><a href="{% url 'api:lista_reservas_servicios' %}">Listado de reservas servicios</a> </td>
+        <td>Retorna el listado de las reservas realizadas por los clientes</td> 
+        
+    </tr>
+    
+    </td>
+    
+  </tbody>
+</table>
+
+{% endblock contenido %}

@@ -6,6 +6,7 @@ from . import views
 app_name = 'api'
 
 urlpatterns = [
+    path('home/', views.home_api, name='home_api'),
     path('empleados/', views.ListaEmpleados.as_view(), name='lista_empleados'),
     path('empleados/<int:pk>/', views.DetalleEmpleado.as_view(),
          name='detalle_empleado'),

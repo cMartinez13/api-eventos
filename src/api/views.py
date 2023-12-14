@@ -12,6 +12,8 @@ from .serializers import ClienteSerializerList, ClienteSerializer
 
 # EMPLEADOS
 
+def home_api(request):
+    return render(request, 'home_api.html')
 
 class ListaEmpleados(generics.ListAPIView):
     queryset = Empleado.objects.all()

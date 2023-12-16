@@ -5,12 +5,45 @@
 {% endblock titulo %}
 
 {% block contenido %}
-<form action="" method="POST" enctype="multipart/form-data">
-    <table>
-        {{ form.as_table }}
-        {% csrf_token %}
-    </table>
-    <a class = "btn btn-warning" href="{% url 'reserva_servicios:listar' %}">Volver</a>
-    <button class="btn btn-success" type="submit">{{mensaje_boton}}</button>
-</form>
+<div class="container pt-3  " style="width: 50rem">
+    <div class="card " style=" d-flex justify-content-center width: 38rem; border-radius: 1.5rem;">
+        <div class="card-body" >
+          <h5 class="card-title" style= "text-align: center">{{ titulo }}</h5>
+          <p class="card-text">
+            <form action="" method="POST" enctype="multipart/form-data"  class="form-group mb-3">
+                {% csrf_token %}
+                <div class="">
+                    <div class="form-group mb-3">
+                        <label for = '{{ form.fecha_reserva.id_for_label }}'>Fecha de Reserva </label>
+                        <input type="date" class="form-control" id="fecha_reserva"  name="{{ form.fecha_reserva.html_name}}"  required>
+                        <small class="form-text text-muted">{{ form.fecha_reserva.help_text}}</small>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for = '{{ form.fecha_servicio.id_for_label }}'>Fecha de Servicio </label>
+                        <input type="date" class="form-control" id="fecha_servicio"  name="{{ form.fecha_servicio.html_name}}"  required>
+                        <small class="form-text text-muted">{{ form.fecha_servicio.help_text}}</small>
+                    </div>
+                </div>
+                {% comment %} form-select {% endcomment %}
+                {% comment %} <select class ="form-select"> 
+                    <div class="form-group mb-3 ">
+                        <option value= "{{ form.select }}">
+                    </div>
+    
+                </select> {% endcomment %}
+ 
+                 
+                
+                <br>
+                <div class="d-grid gap-2">
+                    <a class = "btn btn-warning " href="{% url 'reserva_servicios:listar' %}">Volver</a>
+                    <button class = "btn btn-primary " type="submit">{{mensaje_boton}}</button>
+                </div>
+
+            </form>
+          </p>
+        </div>
+    </div>
+</div>
 {% endblock contenido %}

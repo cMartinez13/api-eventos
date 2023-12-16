@@ -15,7 +15,6 @@ lista coordinadores
       <th>Nombre</th>
       <th>Documento</th>
       <th>Fecha de Alta</th>
-      <th>Activo</th>
       <th>Editar | Eliminar</th>
     </tr>
   </thead>
@@ -27,7 +26,6 @@ lista coordinadores
       <td>{{ coordinador.nombre }}</td>
       <td>{{ coordinador.documento }}</td>
       <td>{{ coordinador.fecha_alta }}</td>
-      <td>{{ coordinador.activo }}</td>
       <td>
       <a class="btn btn-warning" href="{% url 'coordinadores:modificar' pk=coordinador.id %}">Editar</a>
       {% if coordinador.activo  %}

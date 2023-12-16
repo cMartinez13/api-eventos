@@ -27,6 +27,7 @@ urlpatterns = [
     path('reservas_servicios/', include('app_reservas_servicios.urls')),
     path('servicios/', include('app_servicio.urls')),
     path('api/', include('api.urls')),
+    path('', include('app_reservas.urls')),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

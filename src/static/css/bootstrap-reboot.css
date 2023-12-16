@@ -183,7 +183,8 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -272,10 +273,10 @@ p {
 
 abbr[title] {
   -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+          text-decoration: underline dotted;
   cursor: help;
   -webkit-text-decoration-skip-ink: none;
-  text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
 }
 
 address {
@@ -592,6 +593,4 @@ progress {
 
 [hidden] {
   display: none !important;
-}
-
-/*# sourceMappingURL=bootstrap-reboot.css.map */
+}/*# sourceMappingURL=bootstrap-reboot.css.map */

@@ -13,6 +13,7 @@ class CoordinadorCreateView(generic.CreateView):
     model = Coordinador
     fields = '__all__'
     template_name = 'coordinadores/crear_coordinadores.html'
+    extra_context = {'titulo': 'Alta de Coordinador', 'mensaje_boton': 'CREAR'}
     success_url = reverse_lazy('coordinadores:listar')
 
 

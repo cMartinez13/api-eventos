@@ -17,7 +17,6 @@ class EmpleadoCreateView(generic.CreateView):
 
 
 class EmpleadoListView(generic.ListView):
-    # queryset = Empleado.objects.filter(activo=True)
     queryset = Empleado.objects.all()
     model = Empleado
     fields = '__all__'
@@ -35,7 +34,7 @@ class EmpleadoDetailView(generic.DetailView):
 class EmpleadoUpdateView(generic.UpdateView):
     model = Empleado
     fields = '__all__'
-    template_name = 'empleados/crear_empleado.html'
+    template_name = 'empleados/modificar_empleado.html'
     extra_context = {'titulo': 'Modificar Empleado',
                      'mensaje_boton': 'MODIFICAR'}
     success_url = reverse_lazy('empleados:listar')

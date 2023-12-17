@@ -5,7 +5,6 @@
 {% endblock titulo %}
 
 {% block contenido %}
-{% load static %}
 <br>
 <br>
 <div class="container">
@@ -23,13 +22,13 @@
                     {% csrf_token %}
                     <div class="form-group mb-3">
                         <label for = '{{ form.nombre.id_for_label }}'>{{form.nombre.html_name|capfirst}}</label>
-                        <input type="{{form.nombre.html_name}}" class="form-control" id="uname"  name="{{form.nombre.html_name}}"  required>
+                        <input type="{{form.nombre.html_name}}" class="form-control" id="uname"  name="{{form.nombre.html_name}}" placeholder="Ingrese el nombre del servicio"  required>
                         <small class="form-text text-muted">{{form.nombre.help_text}}</small>
                     </div>
 
                     <div class="form-group mb-3">
                         <label for = '{{ form.descripcion.id_for_label }}'>{{ form.descripcion.html_name|capfirst}}</label>
-                        <textarea input type="{{ form.descripcion.html_name}}" class="form-control" id="uname"  name="{{ form.descripcion.html_name}}"required rows="5"></textarea>
+                        <textarea input type="{{ form.descripcion.html_name}}" class="form-control" id="uname"  name="{{ form.descripcion.html_name}}" placeholder="Ingrese la descripción del servicio" required rows="5"></textarea>
                         <small class="form-text text-muted">{{ form.descripcion.help_text}}</small>
                     </div>
 
@@ -37,7 +36,7 @@
                         <label for = '{{ form.precio.id_for_label }}'>{{ form.precio.html_name|capfirst}} </label>
                         <div class = "input-group"> 
                             <span class="input-group-text">$</span>
-                            <input type="number" class="form-control" id="precio"  name="{{ form.precio.html_name}}" placeholder="" required>
+                            <input type="number" class="form-control" id="precio"  name="{{ form.precio.html_name}}" placeholder="Ingrese el precio del servicio" required>
                         </div>
                         <small class="form-text text-muted">{{ form.precio.help_text}}</small>
                     </div>

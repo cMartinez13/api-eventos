@@ -25,16 +25,59 @@
                         <small class="form-text text-muted">{{ form.fecha_servicio.help_text}}</small>
                     </div>
                 </div>
-                {% comment %} form-select {% endcomment %}
-                {% comment %} <select class ="form-select"> 
-                    <div class="form-group mb-3 ">
-                        <option value= "{{ form.select }}">
-                    </div>
-    
-                </select> {% endcomment %}
- 
-                 
-                
+
+                {% comment %} Select Clientes {% endcomment %}
+                <div class="form-group mb-3 ">
+                    
+                    <label for = '{{ form.cliente.id_for_label }}'>{{form.cliente.html_name|capfirst}}</label>
+                    <select name="{{ form.cliente.html_name}}" id='cliente' class ="form-select"> 
+                        <option disabled selected>Seleccionar un cliente</option>	
+                        {% for cliente in clientes %}
+                            <option value="{{ cliente.id }}" >{{ cliente.nombre }} {{ cliente.apellido }}</option>
+                        {% endfor %}
+                    </select> 
+                    {{ form.cliente.errors }}
+                </div>
+
+                {% comment %} Select Servicio {% endcomment %}
+                <div class="form-group mb-3 ">
+                    
+                    <label for = '{{ form.servicio.id_for_label }}'>{{form.servicio.html_name|capfirst}}</label>
+                    <select  name="{{ form.servicio.html_name}}" id='servicio' class ="form-select"> 
+                        <option disabled selected>Seleccionar un Servicio</option>	
+                        {% for servicio in servicios %}
+                            <option value="{{ servicio.id }}" >{{ servicio.nombre }}</option>
+                        {% endfor %}
+                    </select> 
+                    {{ form.servicio.errors }}
+                </div>
+
+                {% comment %} Select Coordinador {% endcomment %}
+                <div class="form-group mb-3 ">
+                    
+                    <label for = '{{ form.coordinador.id_for_label }}'>{{form.coordinador.html_name|capfirst}}</label>
+                    <select name="{{ form.coordinador.html_name}}" id='coordinador' class ="form-select"> 
+                        <option disabled selected>Seleccionar un Coordinador</option>	
+                        {% for coordinador in coordinadores %}
+                            <option value="{{coordinador.id}}" >{{ coordinador.nombre }} {{ coordinador.apellido }}</option>
+                        {% endfor %}
+                    </select> 
+                    {{ form.coordinador.errors }}
+                </div>
+
+                {% comment %} Select Empleado {% endcomment %}
+                <div class="form-group mb-3 ">
+                    
+                    <label for = '{{ form.empleado.id_for_label }}'>{{form.empleado.html_name|capfirst}}</label>
+                    <select name="{{ form.empleado.html_name}}" id='empleado'  class ="form-select"> 
+                        <option disabled selected>Seleccionar un cliente</option>	
+                        {% for empleado in empleados %}
+                            <option value="{{ empleado.id }}" >{{ empleado.nombre }} {{ empleado.apellido }}</option>
+                        {% endfor %}
+                    </select> 
+                    {{ form.empleado.errors }}
+                </div>
+
                 <br>
                 <div class="d-grid gap-2">
                     <a class = "btn btn-warning " href="{% url 'reserva_servicios:listar' %}">Volver</a>

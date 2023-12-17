@@ -1,5 +1,5 @@
 {% extends 'base.html' %} 
-​
+
 {% block titulo %}
 Reservas
 {% endblock titulo %}
@@ -31,9 +31,9 @@ Reservas
       <td>{{ reserva_servicio.empleado }}</td>
       <td>{{ reserva_servicio.coordinador }}</td>
       <td>
-        <a class="btn btn-warning" href="{% url 'reserva_servicios:modificar' pk=reserva_servicio.id %}">Editar</a>
+        <a class="btn btn-warning" href="{% url 'reserva_servicios:modificar' pk=reserva_servicio.id %}">Editar</a> 
         <a class="btn btn-danger" href="{% url 'reserva_servicios:eliminar' pk=reserva_servicio.id %}">Eliminar</a> 
-        </td> 
+      </td> 
     </tr>
     {% endfor %}
   </tbody>

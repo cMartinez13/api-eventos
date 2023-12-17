@@ -14,26 +14,26 @@
                 {% csrf_token %}
                 <div class="form-group mb-3">
                     <label for = '{{ form.nombre.id_for_label }}'>{{form.nombre.html_name|capfirst}}</label>
-                    <input type="{{form.nombre.html_name}}" class="form-control" id="nombre"  name="{{form.nombre.html_name}}" value="{{form.nombre.value}}" placeholder="Nombre del Coordinador" required>
+                    <input type="{{form.nombre.html_name}}" class="form-control" id="nombre"  name="{{form.nombre.html_name}}"  placeholder="Nombre del Coordinador" required>
                     <small class="form-text text-muted">{{form.nombre.help_text}}</small>
                 </div>
                 <div class="form-group mb-3">
                     <label class="" for = '{{ form.apellido.id_for_label }}'>{{ form.apellido.html_name|capfirst}}</label>
-                    <input type="{{ form.apellido.html_name}}" class="form-control" id="apellido"  name="{{ form.apellido.html_name}}" value="{{form.apellido.value}}" placeholder="Apellido del Coordinador" required >
+                    <input type="{{ form.apellido.html_name}}" class="form-control" id="apellido"  name="{{ form.apellido.html_name}}"  placeholder="Apellido del Coordinador" required >
                     <small class="form-text text-muted">{{ form.apellido.help_text}}</small>
                 </div>
                 <div class="form-group mb-3">
                     <label for = '{{ form.documento.id_for_label }}'>{{ form.documento.html_name|capfirst}} </label>
-                    <input type="number" class="form-control" id="documento"  name="{{ form.documento.html_name}}" value="{{form.documento.value}}" placeholder="Documento del Coordinador" required>
+                    <input type="number" class="form-control" id="documento"  name="{{ form.documento.html_name}}"  placeholder="Documento del Coordinador" required>
                     <small class="form-text text-muted">{{ form.documento.help_text}}</small>
                 </div>
                 <div class="form-group mb-3">
                     <label for = '{{ form.fecha_alta.id_for_label }}'>Fecha de Alta </label>
-                    <input type="date" class="form-control" id="fecha_alta"  name="{{ form.fecha_alta.html_name}}" value="{{form.fecha_alta.value}}"  required>
+                    <input type="date" class="form-control" id="fecha_alta"  name="{{ form.fecha_alta.html_name}}"   required>
                     <small class="form-text text-muted">{{ form.fecha_alta.help_text}}</small>
                 </div>
                 <div class="form-group form-switch">
-                    <input class="form-check-input" type="checkbox" class="form-control" id="activo"  name="{{ form.activo.html_name}}" value="{{form.activo.value}}" checked >
+                    <input class="form-check-input" type="checkbox" class="form-control" id="activo"  name="{{ form.activo.html_name}}" value="true" checked >
                     <label for = '{{ form.activo.id_for_label }}'>{{ form.activo.html_name|capfirst}} </label>
                     <small class="form-text text-muted">{{ form.activo.help_text}}</small>
                 </div>

@@ -29,7 +29,7 @@ class CoordinadorUpdateView(generic.UpdateView):
     queryset = Coordinador.objects.filter(activo=True)
     model = Coordinador
     fields = '__all__'
-    template_name = 'coordinadores/modificar_coordinador.html'
+    template_name = 'coordinadores/crear_coordinadores.html'
     extra_context = {'titulo': 'Modificar Coordinador',
                      'mensaje_boton': 'MODIFICAR'}
     success_url = reverse_lazy('coordinadores:listar')

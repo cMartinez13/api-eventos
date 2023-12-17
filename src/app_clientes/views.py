@@ -8,7 +8,7 @@ from .models import Cliente
 class ClienteCreateView(generic.CreateView):
     model = Cliente
     fields = '__all__'
-    template_name = 'clientes/modificar_cliente.html'
+    template_name = 'clientes/crear_cliente.html'
     extra_context = {'titulo': 'Alta de Cliente', 'mensaje_boton': 'CREAR'}
     success_url = reverse_lazy('clientes:listar')
 

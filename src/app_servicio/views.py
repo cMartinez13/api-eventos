@@ -11,7 +11,7 @@ from .models import Servicio
 class ServicioCreateView(generic.CreateView):
     model = Servicio
     fields = '__all__'
-    template_name = 'servicios/modificar_servicio.html'
+    template_name = 'servicios/crear_servicio.html'
     extra_context = {'titulo': 'Nuevo Servicio', 'mensaje_boton': 'Crear'}
     success_url = reverse_lazy('servicios:listar')
 

@@ -5,12 +5,22 @@
 {% endblock titulo %}
 
 {% block contenido %}
-<form action="" method="POST" enctype="multipart/form-data">
-    <table>
-        {{ form.as_table }}
-        {% csrf_token %}
-    </table>
-    <a class = "btn btn-warning" href="{% url 'coordinadores:listar' %}">Volver</a>
-    <button class="btn btn-success" type="submit">{{mensaje_boton}}</button>
-</form>
+
+<div class="container pt-3  " style="width: 50rem">
+    <div class="card " style=" d-flex justify-content-center width: 38rem; border-radius: 1.5rem;">
+        <div class="card-body" >
+          <h5 class="card-title" style= "text-align: center">{{ titulo }}</h5>
+          <p class="card-text">
+            <form action="" method="POST" enctype="multipart/form-data"  class="input-group flex-column">
+                {{ form.as_table }}
+                {% csrf_token %}
+                <div class="d-grid gap-2">
+                    <a class = "btn btn-warning " href="{% url 'coordinadores:listar' %}">Volver</a>
+                    <button class = "btn btn-primary " type="submit">{{mensaje_boton}}</button>
+                </div>
+            </form>
+          </p>
+        </div>
+    </div>
+</div>
 {% endblock contenido %}

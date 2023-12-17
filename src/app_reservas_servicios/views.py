@@ -14,7 +14,7 @@ def listado_reservas(request):
 class ReservasCreateView(generic.CreateView):    
     model = ReservaServicio
     fields = '__all__'
-    template_name = 'reservas_servicios/modificar_reserva_servicio.html'
+    template_name = 'reservas_servicios/crear_reserva_servicio.html'
     extra_context = {'titulo': 'Realizar reserva de servicio', 'mensaje_boton': 'CREAR'}
     success_url = reverse_lazy('reserva_servicios:listar')
 

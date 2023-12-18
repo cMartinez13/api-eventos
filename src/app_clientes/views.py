@@ -6,6 +6,14 @@ from .models import Cliente
 
 
 class ClienteCreateView(generic.CreateView):
+    """ Retorna un formulario para crear un objeto, y guardar el mismo. 
+      
+    Argumentos:
+        nombre (str): [nombre]
+        apellido (str): [apellido]
+        activo(bool): [activo]
+    
+    """ 
     model = Cliente
     fields = '__all__'
     template_name = 'clientes/crear_cliente.html'
@@ -14,6 +22,7 @@ class ClienteCreateView(generic.CreateView):
 
 
 class ClienteListView(generic.ListView):
+    """ Retorna el listado de objetos del modelo Cliente"""
     queryset = Cliente.objects.all()
     model = Cliente
     fields = '__all__'
@@ -22,6 +31,11 @@ class ClienteListView(generic.ListView):
 
 
 class ClienteDetailView(generic.DetailView):
+    """ Retorna el objeto sobre el que la vista opera del modelo Cliente.
+     Argumentos:
+        pk (int): [id]
+    
+    """ 
     model = Cliente
     fields = '__all__'
     context_object_name = 'cliente'
@@ -29,6 +43,14 @@ class ClienteDetailView(generic.DetailView):
 
 
 class ClienteUpdateView(generic.UpdateView):
+    """ Retorna un formulario para modificar un objeto en el modelo Cliente
+    
+      Argumentos:
+        nombre (str): [nombre]
+        apellido (str): [apellido]
+        activo(bool): [activo]
+    
+    """
     model = Cliente
     fields = '__all__'
     template_name = 'clientes/modificar_cliente.html'
@@ -38,19 +60,33 @@ class ClienteUpdateView(generic.UpdateView):
 
 
 def activar_cliente(request, pk):
+    """Permite cambiar el estado de un cliente de desactivado a activado
+    
+    Argumentos:
+        activo (bool): [activo]
+        
+    """
     cliente = get_object_or_404(Cliente, pk=pk)
     cliente.activo = True
     cliente.save()
+    """Retorna un mensaje en caso de éxito o en un error 404 en caso contrario"""
     messages.success(
         request, F"El cliente {cliente.apellido} {cliente.nombre} ha sido activado exitosamente.")
     return redirect('/clientes/listar/')
 
 
 def desactivar_cliente(request, pk):
+    """Permite cambiar el estado de un cliente de activado a desactivado
+    
+    Argumentos:
+        activo (bool): [activo]
+        
+    """
     cliente = get_object_or_404(Cliente, pk=pk)
 
     cliente.activo = False
     cliente.save()
+    """Retorna un mensaje en caso de éxito o en un error 404 en caso contrario"""
     messages.info(
         request, F"El cliente {cliente.apellido} {cliente.nombre} ha sido desactivado.")
     return redirect('clientes:listar')

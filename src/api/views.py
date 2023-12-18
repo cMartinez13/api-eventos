@@ -16,11 +16,14 @@ def home_api(request):
     return render(request, 'home_api.html')
 
 class ListaEmpleados(generics.ListAPIView):
+
     queryset = Empleado.objects.all()
     serializer_class = EmpleadoSerializerList
 
 
 class DetalleEmpleado(generics.RetrieveAPIView):
+    
+    
     queryset = Empleado.objects.all()
     serializer_class = EmpleadoSerializer
 

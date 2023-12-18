@@ -37,16 +37,15 @@ lista Servicios
       <td>{{ servicio.descripcion }}</td>
       <td>${{ servicio.precio }}</td>
       <td> 
-        <a class="btn btn-warning" href="{% url 'servicios:modificar' pk=servicio.id %}">Editar</a>
-        {% if servicio.activo  %}
-          <a class="btn btn-danger" href="{% url 'servicios:desactivar' pk=servicio.id %}">Desactivar</a> 
-        {% else %}
-          <a class="btn btn-primary" href="{% url 'servicios:activar' pk=servicio.id %}">Activar</a> 
-        {% endif %}
-      </td>
-  </tr>
+      <a class="btn btn-warning" href="{% url 'servicios:modificar' pk=servicio.id %}">Editar</a>
+      {% if servicio.activo  %}
+        <a class="btn btn-danger" href="{% url 'servicios:desactivar' pk=servicio.id %}">Desactivar</a> 
+      {% else %}
+        <a class="btn btn-primary" href="{% url 'servicios:activar' pk=servicio.id %}">Activar</a> 
+      {% endif %}
+    </tr>
     {% endfor %}
-
+  </td>
   </tbody>
 </table>
 

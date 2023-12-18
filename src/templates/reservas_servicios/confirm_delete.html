@@ -7,7 +7,7 @@
 {% block contenido %}
 <form method="POST">
     {% csrf_token %}
-    <h2>Estas seguro de eliminar "{{ object }}"?</h2>
+    <h2 style="color:white">Estas seguro de eliminar "{{ object }}"?</h2>
     {{ form }}
     <a class="btn btn-warning" href="{% url 'reserva_servicios:listar'%}" role="button">Volver</a>
     <input class="btn btn-danger" type="submit" value="{{ mensaje_boton }}">

@@ -1,0 +1,66 @@
+<!doctype html>
+{% load static %}
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {% block titulo %}
+      {% endblock titulo %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+  </head>
+  <body>
+    <div class= "container-fluid">
+      <nav class="navbar sticky-top navbar-expand-md bg-body-tertiary"  style="width: 100%">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Inicio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'reserva_servicios:listar' %}">Reservas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'clientes:listar' %}">Clientes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'empleados:listar' %}">Empleados</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'coordinadores:listar' %}">Coordinadores</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'servicios:listar' %}">Servicios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/api/home">Api</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <div class ="container">
+        {% block contenido %}
+        {% endblock contenido %}
+      </div>
+    
+    <div style="position: relative; min-height: 50vh;"> 
+      <footer class="bg-dark text-center text-white" style="position:absolute; bottom: 0; width: 100%;">
+          <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Copyright: ALkemy - Squat 2
+        </div>
+          <!-- Copyright -->
+      </footer>
+    </div> 
+    </div>
+    
+<!-- End of .container -->
+    
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

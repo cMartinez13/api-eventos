@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block titulo %}  Home API {% endblock %}
+
+{% block contenido %}
+<br>
+
+<h1 style="color:white">API RESERVAS</h1>
+
+<h2 style="color:white">Listado de endpoints: </h2> 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Petición</th>
+      <th>URL</th>
+      <th>Descripción</th>
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>GET</td> 
+        <td><a href="{% url 'api:lista_empleados' %}">Listado de empleados</a> </td>
+        <td>Retorna el listado de datos de todos los empleados activos</td> 
+        
+    </tr>
+    <tr>
+        <td>GET</td> 
+        <td><a href="{% url 'api:lista_coordinadores' %}">Listado de coordinadores</a> </td>
+        <td>Retorna el listado de datos de todos los coordinadores activos</td> 
+        
+    </tr>
+      
+    <tr>
+        <td>GET</td> 
+        <td><a href="{% url 'api:lista_servicios' %}">Listado de servicios</a> </td>
+        <td>Retorna el listado de datos de todos los servicios activos que posee la empresa</td>
+
+    </tr>
+      
+    <tr>
+        <td>GET</td> 
+        <td><a href="{% url 'api:lista_reservas_servicios' %}">Listado de reservas servicios</a> </td>
+        <td>Retorna el listado de las reservas realizadas por los clientes</td> 
+        
+    </tr>
+    
+    </td>
+    
+  </tbody>
+</table>
+<br>
+<br>
+
+
+<div class="card text-center">
+  <div class="card-header"  >
+    API RESERVAS
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Prueba ahora!</h4>
+    <p class="card-text">Necesitas ayuda? Prueba con el número de ID que quieras ver en detalle. Por ejemplo: servicios/1, empleados/2, coordinadores/3, reservas_servicios/1</p>
+    <div class="container">
+      <script>
+          function abrir(){
+              let url = document.getElementById("url").value;
+              urlNueva = "http://localhost:8000/api/" + url
+            
+              window.open(urlNueva)
+          }
+      </script>
+      <div class= "container-fluid" style="font-size:1.3rem">
+      <label for="url">
+        http://localhost:8000/api/
+      <input id="url" type="url">
+      </div>
+      <br>
+      <div class="d-grid gap-2" style="width: 40rem align-item:center">
+      <button onclick="abrir()" class="btn btn-primary ">ABRIR</button>
+      </div>
+</div>
+  </div>
+  <div class="card-footer text-muted">
+  Prueba de servicios Reservas API RESTFul
+  </div>
+</div>
+<br> <br>
+<p style="color:white">Esta es una API solo de consumo: solo el método HTTP GET está disponible en los recursos.<p>
+  <h6>Status code</h6>
+<ul>
+  <li style="color:white">200 OK: El código de respuesta de estado de éxito HTTP 200 OK indica que la solicitud ha tenido éxito. </li>
+  <li style="color:white">404: El código de estado de respuesta HTTP 404 Not Found indica que el servidor no puede encontrar el recurso solicitado.</li>
+  <li style="color:white">500: El código de respuesta de error del servidor interno HTTP 500 indica que el servidor encontró una condición inesperada que le impedía cumplir la solicitud.</li>
+</ul>
+<br>
+<div>
+  
+<h3 style="color:white">Endpoints:</h3>
+<div style="display:flex justify-content:center">
+  <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="popover" title="Métodos HTTP permitidos" >GET</button>
+  <h4 style="color:white">http://localhost:8000/api/coordinadores</h4>
+
+</div>
+  
+  <h6 style="color:white"> Retorna el listado de datos de todos los coordinadores activos e inactivos </h6>
+</div>
+<br>
+<div class="card border-dark mb-3" style="max-width: 40rem;">
+  
+  <div class="card-body text-dark">
+    <p class="card-text">
+      <code>
+      HTTP 200 OK <br>
+      Allow: GET, HEAD, OPTIONS <br>
+      Content-Type: application/json <br>
+      Vary: Accept <br>
+          { <br>
+              "id": 1, <br>
+              "nombre": "Kevin" <br>
+          }, <br>
+          { <br>
+              "id": 2, <br>
+              "nombre": "Camila" <br>
+          } <br>
+      
+        </code>
+      </p>
+  </div>
+</div>
+<div style="display:flex justify-content:center">
+  <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="popover" title="Métodos HTTP permitidos" >GET</button>
+  <h4 style="color:white">http://localhost:8000/api/coordinadores/id</h4>
+
+</div>
+<h6 style="color:white"> Retorna el detalle de datos del coordinador que coincida con el ID ingresado </h6>
+<br>
+<div class="card border-dark mb-3" style="max-width: 40rem;">
+  
+  <div class="card-body text-dark">
+    <p class="card-text">
+      <code>
+      HTTP 200 OK <br>
+      Allow: GET, HEAD, OPTIONS <br>
+      Content-Type: application/json <br>
+      Vary: Accept <br>
+         
+      {<br>
+        "id": 1, <br>
+        "nombre": "Kevin", <br>
+        "apellido": "McCallister", <br>
+        "documento": 31151345, <br>
+        "fecha_alta": "2023-12-12T00:00:00Z", <br>
+        "activo": true <br>
+    } <br>
+        </code>
+      </p>
+  </div>
+</div>
+
+
+
+{% endblock contenido %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block titulo %}  Home  {% endblock %}
+
+{% block contenido %}
+    <div class= "custom-container">
+        <header>
+            <a href="{% url 'reserva_servicios:nuevo' %}">Reservá Tus Servicios</a>
+        </header>
+        <article>
+        <h3>Clientes</h3>
+        <section class="d-flex justify-content-center">
+            <a href="{% url 'clientes:listar' %}">Listado de Clientes</a>
+        </section>
+        </article>
+        <article>
+        <h3>Empleados</h3>
+        <section class="d-flex justify-content-center">
+            <a href="{% url 'empleados:listar' %}">Listado de Empleados</a>
+        </section>
+        </article>
+        <article>
+        <h3>Coordinadores</h3>
+        <section class="d-flex justify-content-center">
+            <a href="{% url 'coordinadores:listar' %}">Listado de Coordinadores</a>
+        </section>
+        </article>
+        <article>
+        <h3>Servicios</h3>
+        <section class="d-flex justify-content-center">
+            <a href="{% url 'servicios:listar' %}">Listado de Servicios</a>
+        </section>
+        </article>
+    </div>
+{% endblock contenido %}

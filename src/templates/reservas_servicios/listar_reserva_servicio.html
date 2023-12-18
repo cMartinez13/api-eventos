@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+
+{% block titulo %}
+Reservas
+{% endblock titulo %}
+|
+{% block contenido %}
+<h2 class="text-center my-2"> Listado de Reservass </h2>
+​​​<a class="btn btn-success " href= "{% url 'reserva_servicios:nuevo'%}">Agregar nueva Reserva 🎉</a>
+<table class="table table-striped table-hover table-secondary my-3">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Fecha reserva</th>
+      <th>Fecha servicio</th>
+      <th>Cliente</th>
+      <th>Servicio</th>
+      <th>Empleado</th>
+      <th>Coordinador</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for reserva_servicio in reserva_servicios %}
+    <tr>
+      <th> {{ reserva_servicio.id }} </th>
+      <td>{{ reserva_servicio.fecha_reserva }}</td>
+      <td>{{ reserva_servicio.fecha_servicio }}</td>
+      <td>{{ reserva_servicio.cliente }}</td>
+      <td>{{ reserva_servicio.servicio }}</td>
+      <td>{{ reserva_servicio.empleado }}</td>
+      <td>{{ reserva_servicio.coordinador }}</td>
+      <td>
+        <a class="btn btn-warning" href="{% url 'reserva_servicios:modificar' pk=reserva_servicio.id %}">Editar</a> 
+        <a class="btn btn-danger" href="{% url 'reserva_servicios:eliminar' pk=reserva_servicio.id %}">Eliminar</a> 
+      </td> 
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock contenido %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    {{titulo}}
+{% endblock titulo %}
+
+{% block contenido %}
+
+<br>
+<br>
+<div class="container">
+    <div class="container">
+
+     
+    </div>
+    <div class="container" style="width: 50rem">
+        <div class="card" style="d-flex justify-content-center width: 38rem; border-radius: 1.5rem;">
+            <div class="card-body" >
+            <h5 class="card-title" style= "text-align: center">{{titulo}}</h5>
+            
+            <p class="card-text">
+                <form action="" method="POST" enctype="multipart/form-data"  class="form-group mb-3">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for = '{{ form.nombre.id_for_label }}'>{{form.nombre.html_name|capfirst}}</label>
+                        <input type="{{form.nombre.html_name}}" class="form-control" id="uname"  name="{{form.nombre.html_name}}" value={{ form.nombre.value}}  required>
+                        <small class="form-text text-muted">{{form.nombre.help_text}}</small>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for = '{{ form.descripcion.id_for_label }}'>{{ form.descripcion.html_name|capfirst}}</label>
+                        <textarea input type="{{ form.descripcion.html_name}}" class="form-control" id="uname"  name="{{ form.descripcion.html_name}}" required rows="5">{{ form.descripcion.value}}</textarea>
+                        <small class="form-text text-muted">{{ form.descripcion.help_text}}</small>
+                    </div>
+
+                    <div class="form-group  mb-3">
+                        <label for = '{{ form.precio.id_for_label }}'>{{ form.precio.html_name|capfirst}} </label>
+                        <div class = "input-group"> 
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" id="precio"  name="{{ form.precio.html_name}}" value= {{ form.precio.value }}  required>
+                        </div>
+                        <small class="form-text text-muted">{{ form.precio.help_text}}</small>
+                    </div>
+
+                    <div class="form-group form-switch">
+                        <input class="form-check-input" type="checkbox" class="form-control" id="activo"  name="{{ form.activo.html_name}}" value={{ form.activo.value}} checked >
+                        <label for = '{{ form.activo.id_for_label }}'>{{ form.activo.html_name|capfirst}} </label>
+                        <small class="form-text text-muted">{{ form.activo.help_text}}</small>
+                    </div>
+
+                    <br>
+                    <div class="d-grid gap-2">
+                        <a class = "btn btn-warning" href="{% url 'servicios:listar' %}">Volver</a>
+                        <button type="submit" class="btn btn-primary ">{{mensaje_boton}}</button>
+                    </div>
+                </form>
+            </p>
+              
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock contenido %}
